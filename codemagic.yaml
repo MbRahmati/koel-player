@@ -1,7 +1,7 @@
 workflows:
   build:
     name: Build APK
-    instance_type: mac_mini
+    instance_type: mac_mini_m1
     environment:
       flutter: stable
     scripts:
