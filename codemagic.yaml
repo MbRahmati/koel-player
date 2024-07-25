@@ -1,0 +1,17 @@
+workflows:
+  build:
+    name: Build APK
+    instance_type: mac_mini
+    environment:
+      flutter: stable
+    scripts:
+      - name: Install dependencies
+        script: flutter pub get
+      - name: Analyze code
+        script: flutter analyze
+      - name: Enable verbose logging
+        script: export FLUTTER_BUILD_MODE=release && flutter build apk --verbose
+      - name: Build APK
+        script: flutter build apk --release --verbose
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
